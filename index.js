@@ -25,7 +25,15 @@ function retornaPaginaInicial(requisicao, resposta) {
 
 function retornaCalculo(requisicao, resposta) {
 
-    let numeroVezes = requisicao.query.numero;
+    let multiplicador = requisicao.query.numero;
+    console.log(multiplicador);
+
+    //se o multiplicador retornar vazio ou indefinido, multiplica por 10;
+    if (multiplicador == '' || multiplicador == undefined) {
+
+        multiplicador = 10;
+    }
+
     let numeroTabuada = requisicao.query.tabuada;
 
     console.log(requisicao.query);
@@ -41,7 +49,7 @@ function retornaCalculo(requisicao, resposta) {
     resposta.write('<ul>');
 
     if (numeroTabuada) {
-        for (let i = 0; i <= numeroVezes; i++) {
+        for (let i = 0; i <= multiplicador; i++) {
 
             let resultado = numeroTabuada * i;
             resposta.write('<li>');
