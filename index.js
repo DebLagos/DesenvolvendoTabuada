@@ -40,12 +40,17 @@ function retornaCalculo(requisicao, resposta) {
     resposta.write('<h1>Resultado da tabuada</h1>');
     resposta.write('<ul>');
 
-    for (let i = 0; i <= numeroVezes; i++) {
+    if (numeroTabuada) {
+        for (let i = 0; i <= numeroVezes; i++) {
 
-        let resultado = numeroTabuada * i;
-        resposta.write('<li>');
-        resposta.write(numeroTabuada + " x " + i + " = " + resultado);
-        resposta.write('</li>');
+            let resultado = numeroTabuada * i;
+            resposta.write('<li>');
+            resposta.write(numeroTabuada + " x " + i + " = " + resultado);
+            resposta.write('</li>');
+        }
+    }
+    else {
+        resposta.write('<h1>Informe o parametro para calcular a tabuada na url: http://localhost:3000/tabuada?tabuada=3&numero=10</h1>')
     }
 
     resposta.write('</ul>');
