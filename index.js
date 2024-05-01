@@ -7,12 +7,14 @@ const app = express();
 
 //requisição vem da internet
 //resposta é enviada para internet para quem fez a requisição
+
 function retornaPaginaInicial(requisicao, resposta) {
 
-    resposta.write('<DOCTYPE html>');
+    resposta.write('<!DOCTYPE html>');
+    resposta.write('<html>');
     resposta.write('<head>');
     resposta.write('<meta charset="utf-8">');
-    resposta.write('<title>Tabuada</title>');
+    resposta.write('<title>Página inicial</title>');
     resposta.write('</head>');
     resposta.write('<body>');
     resposta.write('<h1>Página Inicial</h1>');
@@ -21,7 +23,40 @@ function retornaPaginaInicial(requisicao, resposta) {
     resposta.end();
 };
 
+function retornaCalculo(requisicao, resposta) {
+
+    let numeroVezes = requisicao.query.numero;
+    let numeroTabuada = requisicao.query.tabuada;
+
+    console.log(requisicao.query);
+
+    resposta.write('<!DOCTYPE html>');
+    resposta.write('<html>');
+    resposta.write('<head>');
+    resposta.write('<meta charset="utf-8">');
+    resposta.write('<title>Tabuada</title>');
+    resposta.write('</head>');
+    resposta.write('<body>');
+    resposta.write('<h1>Resultado da tabuada</h1>');
+    resposta.write('<ul>');
+
+    for (let i = 0; i <= numeroVezes; i++) {
+
+        let resultado = numeroTabuada * i;
+        resposta.write('<li>');
+        resposta.write(numeroTabuada + " x " + i + " = " + resultado);
+        resposta.write('</li>');
+    }
+
+    resposta.write('</ul>');
+    resposta.write('</body>');
+    resposta.write('</html');
+    resposta.end();
+
+}
+
 app.get("/", retornaPaginaInicial);
+app.get("/tabuada", retornaCalculo);
 
 app.listen(porta, host, () => {
     console.log("Servidor esta executando em http//" + host + ":" + porta);
