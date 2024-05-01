@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "tabuada",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "start":"node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/DebLagos/DesenvolvimentoCalculadora/issues"
   },
-  "homepage": "https://github.com/DebLagos/DesenvolvimentoCalculadora#readme"
+  "homepage": "https://github.com/DebLagos/DesenvolvimentoCalculadora#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
