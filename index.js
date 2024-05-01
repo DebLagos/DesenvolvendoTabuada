@@ -9,15 +9,15 @@ const app = express();
 //resposta é enviada para internet para quem fez a requisição
 function retornaPaginaInicial(requisicao, resposta) {
 
-    resposta.white('<DOCTYPE html>');
-    resposta.white('<head>');
-    resposta.white('<meta charset="utf-8">');
-    resposta.white('<title>Tabuada</title>');
-    resposta.white('</head>');
-    resposta.white('<body>');
-    resposta.white('<h1>Página Inicial</h1>');
-    resposta.white('</body>');
-    resposta.white('</html');
+    resposta.write('<DOCTYPE html>');
+    resposta.write('<head>');
+    resposta.write('<meta charset="utf-8">');
+    resposta.write('<title>Tabuada</title>');
+    resposta.write('</head>');
+    resposta.write('<body>');
+    resposta.write('<h1>Página Inicial</h1>');
+    resposta.write('</body>');
+    resposta.write('</html');
     resposta.end();
 };
 
